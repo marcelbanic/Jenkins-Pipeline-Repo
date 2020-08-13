@@ -27,14 +27,15 @@ pipeline {
             }
         }
         stage('Deploy') {
-            steps {'Deploy stage'
+            steps {
+			echo 'Deploy stage'
                 sh label: '', script: 'bash /var/lib/jenkins/workspace/Jenkins_From_Github_Pipeline/Deploy.sh'
             }
         }
     }
     post {
     always {
-      echo 'always runs regardless of the completion status of the Pipeline run'
+      echo 'always runs regardless of Pipeline run status'
     }
     success {
       echo 'step will run only if the build is successful'
